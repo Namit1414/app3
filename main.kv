@@ -1,0 +1,57 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+#:import colors kivymd.color_definitions.colors
+#:import images_path kivymd.images_path
+BoxLayout:
+    orientation:'vertical'
+    MDToolbar:
+        title: 'NAMIT'
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        md_bg_color: get_color_from_hex(colors['DeepPurple']['A400'])
+        background_palette: 'DeepPurple'
+        background_hue: 'A400'
+        left_action_items: [[f"{images_path}kivymd_alpha.png", lambda x: x]]
+        right_action_items: [['lock', lambda x: x], ['camera', lambda x: x], ['play', lambda x: x]]
+
+
+    MDBottomNavigation:
+        MDBottomNavigationItem:
+            text: 'GEMINI'
+            name: 'screen 1'
+            icon: 'zodiac-gemini'
+            BoxLayout:
+                orientation: "vertical"
+                #spacing: "10dp"
+                #padding: "10dp"
+                #pos_hint: {"center_x": .5, "center_y": .5}
+                MDIconButton:
+                    icon: "instagram"
+                    user_font_size: "340sp"
+        MDBottomNavigationItem:
+            name: 'screen 2'
+            text: 'CANCER'
+            icon: 'zodiac-cancer'
+            BoxLayout:
+                orientation:'vertical'
+                MDIconButton:
+                    icon: "facebook"
+                    user_font_size: "340sp"
+
+
+        MDBottomNavigationItem:
+            name: 'screen'
+            text: 'LEO'
+            icon: 'zodiac-leo'
+            BoxLayout:
+                orientation:'vertical'
+                MDIconButton:
+                    icon: "twitter"
+                    user_font_size: "340sp"
+        MDBottomNavigationItem:
+            name: 'screen 4'
+            text: 'CAPRICORN'
+            icon: 'zodiac-capricorn'
+            BoxLayout:
+                orientation:'vertical'
+                MDIconButton:
+                    icon: "whatsapp"
+                    user_font_size: "340sp"
