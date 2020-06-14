@@ -19,22 +19,27 @@ BoxLayout:
             name: 'screen 1'
             icon: 'zodiac-gemini'
             BoxLayout:
+                adaptive_size: True
                 orientation: "vertical"
                 #spacing: "10dp"
                 #padding: "10dp"
-                #pos_hint: {"center_x": .5, "center_y": .5}
+                pos_hint: {'center_x': .5}
                 MDIconButton:
                     icon: "instagram"
-                    user_font_size: "340sp"
+                    user_font_size: "70sp"
+                    pos_hint: {'center_x': .5}
         MDBottomNavigationItem:
             name: 'screen 2'
             text: 'CANCER'
             icon: 'zodiac-cancer'
             BoxLayout:
+                adaptive_size: True
                 orientation:'vertical'
+                pos_hint: {'center_x': .5}
                 MDIconButton:
                     icon: "facebook"
-                    user_font_size: "340sp"
+                    user_font_size: "50sp"
+                    pos_hint: {'center_x': .5}
 
 
         MDBottomNavigationItem:
@@ -42,16 +47,22 @@ BoxLayout:
             text: 'LEO'
             icon: 'zodiac-leo'
             BoxLayout:
+                adaptive_size: True
                 orientation:'vertical'
+                pos_hint: {'center_x': .5}
                 MDIconButton:
                     icon: "twitter"
-                    user_font_size: "340sp"
+                    user_font_size: "100sp"
+                    pos_hint: {'center_x': .5}
         MDBottomNavigationItem:
             name: 'screen 4'
             text: 'CAPRICORN'
             icon: 'zodiac-capricorn'
             BoxLayout:
+                adaptive_size: True
                 orientation:'vertical'
+                pos_hint: {'center_x': .5}
                 MDIconButton:
                     icon: "whatsapp"
                     user_font_size: "340sp"
+                    pos_hint: {'center_x': .5}
