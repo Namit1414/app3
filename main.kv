@@ -1,68 +1,132 @@
 #:import get_color_from_hex kivy.utils.get_color_from_hex
 #:import colors kivymd.color_definitions.colors
 #:import images_path kivymd.images_path
-BoxLayout:
-    orientation:'vertical'
-    MDToolbar:
-        title: 'NAMIT'
-        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
-        md_bg_color: get_color_from_hex(colors['DeepPurple']['A400'])
-        background_palette: 'DeepPurple'
-        background_hue: 'A400'
-        left_action_items: [[f"{images_path}kivymd_alpha.png", lambda x: x]]
-        right_action_items: [['lock', lambda x: x], ['camera', lambda x: x], ['play', lambda x: x]]
+#:import Window kivy.core.window.Window
+#:import Snackbar kivymd.uix.snackbar.Snackbar
+#:import MDDialog kivymd.uix.dialog.MDDialog
+#:import MDFlatButton kivymd.uix.button.MDFlatButton
+#:import Builder kivy.lang.Builder
+#:import Factory kivy.factory
+#:import KV Helpers.KV
+WindowManager:
+    MainWindow:
+    SecondWindow:
+    ThirdWindow:
+    FourthWindow:
+    FifthWindow:
+    sixthWindow:
+
+<MainWindow>:
+    name: "main"
+
+    MDBoxLayout:
+        adaptive_height: True
+        id: box
+        padding: dp(10)
+        adaptive_size: True
+        spacing: dp(10)
+        orientation: 'vertical'
+        pos_hint:{'center_x': 0.5, 'center_y': 0.4}
+
+        MDTextField:
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            size_hint_x:None
+            width:600
+            color_mode: 'custom'
+            line_color_focus: 0,0,0,1
+            adaptive_height: True
+            adaptive_size: True
+            id: passw
+            hint_text: "YAHAN PE CLICK KAR"
+            helper_text: 'Rakhi Pe Jo chocolate Dii Thii Uska Naam Likh aur sirf neeche wale Cake ko Touch Kariyo'
+            helper_text_mode: 'on_focus'
+            icon_right:"heart"
+        MDIconButton:
+            adaptive_size: True
+            adaptive_height: True
+            icon: "cake-layered"
+            pos_hint: {'center_y': .5, 'center_x': .5}
+            user_font_size: "50sp"
+            theme_text_color: 'Custom'
+            text_color: 0,0,0,1
+            on_release:app.dialog()
+
+        MDIconButton:
+            icon: "cake-layered"
+            user_font_size: "50sp"
+            pos_hint: {'center_y': .5, 'center_x': .5}
+            theme_text_color: 'Custom'
+            text_color: 0,0,0,1
+            on_release:
+                app.root.current = "second" if passw.text == "kitkat" else "main"
+                root.manager.transition.direction = "left"
+<SecondWindow>:
+    name: "second"
+    BoxLayout:
+        orientation:'vertical'
+        MDToolbar:
+            adaptive_size: True
+            size_hint: (1.0,0.1)
+            title: 'HAPPY BIRTHDAY BRUHH'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            md_bg_color: get_color_from_hex(colors['DeepOrange']['A200'])
+            background_palette: 'DeepOrange'
+            background_hue: 'A200'
+            #left_action_items: [["cake-layered", lambda x:x]]
+            right_action_items: [['heart', lambda x:Snackbar(text="HAPPY BIRTHDAY BRUHH U R THE BEST I GOT :)").show()], ['handshake', lambda x:app.show_MDDialog()], ['image', lambda x: x]]
 
 
-    MDBottomNavigation:
-        MDBottomNavigationItem:
-            text: 'GEMINI'
-            name: 'screen 1'
-            icon: 'zodiac-gemini'
-            BoxLayout:
-                adaptive_size: True
-                orientation: "vertical"
-                #spacing: "10dp"
-                #padding: "10dp"
-                pos_hint: {'center_x': .5}
-                MDIconButton:
-                    icon: "instagram"
-                    user_font_size: "70sp"
+        MDBottomNavigation:
+            MDBottomNavigationItem:
+                text: 'GEMINI'
+                name: 'screen 1'
+                icon: 'zodiac-gemini'
+                BoxLayout:
+                    adaptive_size: True
+                    orientation: "vertical"
+                    #spacing: "10dp"
+                    #padding: "10dp"
                     pos_hint: {'center_x': .5}
-        MDBottomNavigationItem:
-            name: 'screen 2'
-            text: 'CANCER'
-            icon: 'zodiac-cancer'
-            BoxLayout:
-                adaptive_size: True
-                orientation:'vertical'
-                pos_hint: {'center_x': .5}
-                MDIconButton:
-                    icon: "facebook"
-                    user_font_size: "50sp"
+                    MDIconButton:
+                        icon: "instagram"
+                        user_font_size: "70sp"
+                        pos_hint: {'center_x': .5}
+            MDBottomNavigationItem:
+                name: 'screen 2'
+                text: 'CANCER'
+                icon: 'zodiac-cancer'
+                BoxLayout:
+                    adaptive_size: True
+                    orientation:'vertical'
                     pos_hint: {'center_x': .5}
+                    MDIconButton:
+                        icon: "facebook"
+                        user_font_size: "50sp"
+                        pos_hint: {'center_x': .5}
 
 
-        MDBottomNavigationItem:
-            name: 'screen'
-            text: 'LEO'
-            icon: 'zodiac-leo'
-            BoxLayout:
-                adaptive_size: True
-                orientation:'vertical'
-                pos_hint: {'center_x': .5}
-                MDIconButton:
-                    icon: "twitter"
-                    user_font_size: "100sp"
+            MDBottomNavigationItem:
+                name: 'screen'
+                text: 'LEO'
+                icon: 'zodiac-leo'
+                BoxLayout:
+                    adaptive_size: True
+                    orientation:'vertical'
                     pos_hint: {'center_x': .5}
-        MDBottomNavigationItem:
-            name: 'screen 4'
-            text: 'CAPRICORN'
-            icon: 'zodiac-capricorn'
-            BoxLayout:
-                adaptive_size: True
-                orientation:'vertical'
-                pos_hint: {'center_x': .5}
-                MDIconButton:
-                    icon: "whatsapp"
-                    user_font_size: "340sp"
+                    MDIconButton:
+                        icon: "twitter"
+                        user_font_size: "100sp"
+                        pos_hint: {'center_x': .5}
+            MDBottomNavigationItem:
+                name: 'screen 4'
+                text: 'CAPRICORN'
+                icon: 'zodiac-capricorn'
+                BoxLayout:
+                    adaptive_size: True
+                    orientation:'vertical'
                     pos_hint: {'center_x': .5}
+                    MDIconButton:
+                        icon: "whatsapp"
+                        user_font_size: "170sp"
+                        pos_hint: {'center_x': .5}
+
