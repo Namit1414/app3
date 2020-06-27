@@ -2,13 +2,16 @@ from kivymd.uix.expansionpanel import MDExpansionPanel
 from kivymd.app import MDApp
 from kivymd.uix.dialog import MDDialog
 from kivymd.uix.button import MDIconButton, MDRaisedButton
+from kivymd.uix.button import MDFloatingActionButtonSpeedDial
 from kivy.lang import Builder
 from kivymd.uix.boxlayout import BoxLayout
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivymd.toast import toast
-from kivy.core.window import Window
-from playsound import playsound
+from kivymd.uix.tab import MDTabsBase
+from kivy.uix.floatlayout import FloatLayout
+from pygame import mixer
 
+mixer.init()
 
 
 class MainWindow(Screen):
@@ -38,6 +41,9 @@ class sixthWindow(Screen):
 class WindowManager(ScreenManager):
     pass
 
+class Tab(FloatLayout, MDTabsBase):
+    pass
+
 
 class MainApp(MDApp):
     def build(self):
@@ -53,7 +59,6 @@ class MainApp(MDApp):
         self.dialog10 = MDDialog(title='Mana Kara Tha Na',
                                  text=" Sun Liya Kar Baat "
                                       "Ab Neeche Click Kar"
-                                      " Aur Iss Baar Sirf Upar Wale Cake Ko Touch Kariyo"
                                  , size_hint=(0.7, 1), auto_dismiss='FALSE', buttons=[butt])
 
         self.dialog10.open()
@@ -84,7 +89,8 @@ class MainApp(MDApp):
         toast('HAPPY BIRTHDAY BROOO')
         pass
     def audio(self):
-        playsound('thank.mp3')
+        mixer.music.load("HB.wav")
+        mixer.music.play()
         pass
     def close_dialog(self, obj):
         toast('Close card')
