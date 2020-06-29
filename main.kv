@@ -45,7 +45,8 @@ WindowManager:
             theme_text_color: 'Custom'
             text_color: 1,1,1,1
             md_bg_color: 0, 0, 0, 1
-            on_release:app.dialog()
+            on_release:
+                app.dialog()
 
         MDRaisedButton:
             text: " CLICK HERE "
@@ -54,7 +55,7 @@ WindowManager:
             text_color: 1,1,1,1
             md_bg_color: 0, 0, 0, 1
             on_release:
-                app.root.current = "third" if passw.text == "" else "main"
+                app.root.current = "fourth" if passw.text == "kitkat" else "main"
                 root.manager.transition.direction = "up"
 <SecondWindow>:
     name: "second"
@@ -68,68 +69,39 @@ WindowManager:
             md_bg_color: get_color_from_hex(colors['DeepOrange']['A200'])
             background_palette: 'DeepOrange'
             background_hue: '700'
-            left_action_items: [['hand-heart', lambda x:app.show_MDDialog()]]
-            #right_action_items: [['heart', lambda x:Snackbar(text="HAPPY BIRTHDAY BRUH UR THE BEST I GOT:)").show()]]
+            #left_action_items: [['hand-heart', lambda x:app.show_MDDialog()]]
+            right_action_items: [['heart', lambda x:app.show_MDDialog()]]
 
-        MDBottomNavigation:
-            panel_color: .2, .2, .2, 1
-            MDBottomNavigationItem:
-                text: 'GEMINI'
-                name: 'screen 1'
-                icon: 'zodiac-gemini'
-                BoxLayout:
-                    orientation: "vertical"
-                    #spacing: "10dp"
-                    #padding: "10dp"
-                    MDLabel:
-                        font_style: 'H6'
-                        pos_hint: {'center_x': .5}
-                        halign: 'center'
-                        theme_text_color: 'Custom'
-                        text_color: (0, 0, 0,1)
-                        text: "HAPPY BIRTHDAY BRUHHHHHHH :)"
-                    MDLabel:
-                        font_style: 'H6'
-                        pos_hint: {'center_x': .5}
-                        halign: 'center'
-                        theme_text_color: 'Custom'
-                        text_color: (.2, .2, .2, 1)
-                        text:"ALWAYS BE ONE HAPPY BIRTHDAY BRUHHHHHHH IT HAS BEEN AN AWESOME JOURNEY AND WILL ALWAYS BE ONE"
+        MDLabel:
+            font_style: 'H6'
+            pos_hint: {'center_x': .5}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: (0, 0, 0,1)
+            text: "HAPPY BIRTHDAY BRUHHHHHHH :)"
+        MDLabel:
+            font_style: 'H6'
+            pos_hint: {'center_x': .5}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: (.2, .2, .2, 1)
+            text:" I FEEL SHORT OF WORDS...BUT IT'S JUST THAT U ARE THE BEST...ENJOY YOUR DAY BRUHH"
 
-                    MDIconButton:
-                        icon: '30.jpg'
-                        pos_hint: {'center_x': .5}
-                        user_font_size: "100sp"
-                        on_release:
-                            app.call()
+        MDIconButton:
+            icon: '30.jpg'
+            pos_hint: {'center_x': .5}
+            user_font_size: "100sp"
+            on_release:
+                app.call()
+                app.root.current = "third"
+                root.manager.transition.direction = "down"
 
-            MDBottomNavigationItem:
-                name: 'screen'
-                text: 'LEO'
-                icon: 'zodiac-leo'
-                BoxLayout:
-                    adaptive_size: True
-                    orientation:'vertical'
-                    pos_hint: {'center_x': .5}
-                    MDIconButton:
-                        icon: "twitter"
-                        user_font_size: "100sp"
-                        pos_hint: {'center_x': .5}
-                        on_release:
-                            app.root.current = "third"
-                            root.manager.transition.direction = "up"
-            MDBottomNavigationItem:
-                name: 'screen 4'
-                text: 'CAPRICORN'
-                icon: 'zodiac-capricorn'
-                BoxLayout:
-                    adaptive_size: True
-                    orientation:'vertical'
-                    pos_hint: {'center_x': .5}
-                    MDIconButton:
-                        icon: "whatsapp"
-                        user_font_size: "170sp"
-                        pos_hint: {'center_x': .5}
+
+
+
+
+
+
 
 <ThirdWindow>:
     name: "third"
@@ -151,8 +123,14 @@ WindowManager:
                         icon: "Happy.jpg"
                         user_font_size: "100sp"
                         pos_hint:{'center_x': 0.5, 'center_y': 0.5}
-                        on_release:
-                            app.audio()
+                        on_release:Snackbar(text="HAPPY BIRTHDAY BRUH UR THE BEST I GOT:)").show()
+                    MDLabel:
+                        font_style: 'H6'
+                        pos_hint: {'center_x': .5}
+                        halign: 'center'
+                        theme_text_color: 'Custom'
+                        text_color: (0, 0, 0,1)
+                        text: "BAS ITNI HI THI APP UPAR 3 DANDE HAIN US PR CLICK KRKE KISI BHI WINDOW MAI JAA SAKTI HAI"
 
                     Widget:
         MDNavigationDrawer:
@@ -171,34 +149,275 @@ WindowManager:
                         id: top_box
                         size_hint_y: None
                         height: "200dp"
-                        pos_hint: {"top": 1}
+                        pos_hint: {'right': .50,'top':.99}
                         FitImage:
                             source:"30.jpg"
             Screen:
                 name:"sc2"
                 MDRaisedButton:
-                    text: " CLICK HERE "
-                    pos_hint: {'center_x': .2,'top':.35}
+                    text: " KITKAT WALI WINDOW "
+                    pos_hint: {'right': .14,'top':.53}
                     theme_text_color: 'Custom'
                     text_color: 1,1,1,1
                     md_bg_color: 0, 0, 0, 1
                     on_release:
                         app.root.current = "main"
-                        root.manager.transition.direction = "down"
+                        root.manager.transition.direction = "left"
                 MDRaisedButton:
-                    text: " CLICK HERE "
-                    pos_hint: {'center_x': .2, 'top':.42}
+                    text: "CAKE WALE BUTTON KI WINDOW"
+                    pos_hint: {'right': .52, 'top':.60}
+                    theme_text_color: 'Custom'
+                    text_color: 1,1,1,1
+                    md_bg_color: 0, 0, 0, 1
+                    on_release:
+                        app.root.current = "fourth"
+                        root.manager.transition.direction = "right"
+                MDRaisedButton:
+                    text: "CLICK HERE WALI WINDOW"
+                    pos_hint: {'right': .30,'top':.46}
+                    theme_text_color: 'Custom'
+                    text_color: 1,1,1,1
+                    md_bg_color: 0, 0, 0, 1
+                    on_release:
+                        app.root.current = "fifth"
+                        root.manager.transition.direction = "right"
+                MDRaisedButton:
+                    text: "TERI PHOTO WALI WINDOW"
+                    pos_hint: {'right': .31,'top':.39}
                     theme_text_color: 'Custom'
                     text_color: 1,1,1,1
                     md_bg_color: 0, 0, 0, 1
                     on_release:
                         app.root.current = "second"
-                        root.manager.transition.direction = "left"
-                MDRaisedButton:
-                    text: " CLICK HERE "
-                    pos_hint: {'center_x': .2,'top':.28}
+                        root.manager.transition.direction = "right"
+
+                MDLabel:
+                    font_style: 'H6'
+                    pos_hint: {'right': .07,'top':.57}
+                    halign: 'center'
                     theme_text_color: 'Custom'
-                    text_color: 1,1,1,1
-                    md_bg_color: 0, 0, 0, 1
-                    on_release:
-                        Snackbar(text="HAPPY BIRTHDAY BRUH UR THE BEST I GOT:)").show()
+                    text_color: (0, 0, 0,1)
+                    text:"Created By Namit"
+                MDLabel:
+                    font_style: 'H6'
+                    pos_hint: {'right': .001,'top':.53}
+                    halign: 'center'
+                    theme_text_color: 'Custom'
+                    text_color: (0, 0, 0,1)
+                    text:"(YOUR BRUH)"
+
+
+<FourthWindow>:
+    name: 'fourth'
+    FloatLayout:
+        orientation: "vertical"
+        pos_hint:{'center_x': 0.5, 'center_y': 0.5}
+
+        MDToolbar:
+            title: 'HAPPY BIRTHDAY BRUHH'
+            elevation: 10
+            pos_hint: {'center_x': .5, 'top':1}
+
+        MDLabel:
+            font_style: 'H6'
+            pos_hint: {'center_x': .5}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: (0, 0, 0,1)
+            text: "PEHLE CAKE WALA BUTTON CLICK KAR PHIR NEXT :)"
+
+        MDRaisedButton:
+            text: " NEXT "
+            pos_hint: {'center_x': .5, 'top':.20}
+            theme_text_color: 'Custom'
+            text_color: 1,1,1,1
+            md_bg_color: 0, 0, 0, 1
+            on_release:
+                app.root.current = "fifth"
+                root.manager.transition.direction = "down"
+
+
+        MDFloatingActionButtonSpeedDial:
+            data: app.data
+            rotation_root_button: True
+            pos_hint: {'center_x': .7, 'top':.60}
+            icon: 'cake'
+            callback: app.callback
+            label_text_color:[1,1,1,1]
+            hint_animation: True
+            opening_transition: "out_back"
+            closing_transition: "out_back"
+            opening_transition_button_rotation:"in_bounce"
+            closing_transition_button_rotation:"out_expo"
+            opening_time:0.7
+            hint_animation: True
+
+
+
+
+
+<FifthWindow>:
+    name:'fifth'
+    MDBoxLayout:
+        orientation: "vertical"
+        pos_hint:{'center_x': 0.5, 'center_y': 0.5}
+
+    MDRaisedButton:
+        text: " CLICK HERE "
+        pos_hint: {'center_x': .7, 'top':.20}
+        theme_text_color: 'Custom'
+        text_color: 1,1,1,1
+        md_bg_color: 0, 0, 0, 1
+        on_release:
+            Snackbar(text="ALWAYS STAY SAME :)").show()
+
+
+    MDRaisedButton:
+        text: " CLICK HERE "
+        pos_hint: {'center_x': .7, 'top':.30}
+        theme_text_color: 'Custom'
+        text_color: 1,1,1,1
+        md_bg_color: 0, 0, 0, 1
+        on_release:
+            Snackbar(text=":):):):):):)").show()
+    MDRaisedButton:
+        text: " CLICK HERE "
+        pos_hint: {'center_x': .7, 'top':.40}
+        theme_text_color: 'Custom'
+        text_color: 1,1,1,1
+        md_bg_color: 0, 0, 0, 1
+        on_release:
+            Snackbar(text="ALWAYS KEEP SHINING :)").show()
+    MDRaisedButton:
+        text: " CLICK HERE "
+        pos_hint: {'center_x': .7, 'top':.50}
+        theme_text_color: 'Custom'
+        text_color: 1,1,1,1
+        md_bg_color: 0, 0, 0, 1
+        on_release:
+            Snackbar(text="HAPPY BIRTHDAY :)").show()
+    MDRaisedButton:
+        text: " CLICK HERE "
+        pos_hint: {'center_x': .7, 'top':.60}
+        theme_text_color: 'Custom'
+        text_color: 1,1,1,1
+        md_bg_color: 0, 0, 0, 1
+        on_release:
+            Snackbar(text="GOD BLESS:)").show()
+    MDRaisedButton:
+        text: " CLICK HERE "
+        pos_hint: {'center_x': .7, 'top':.70}
+        theme_text_color: 'Custom'
+        text_color: 1,1,1,1
+        md_bg_color: 0, 0, 0, 1
+        on_release:
+            Snackbar(text="LOVE YOU ALWAYS:)").show()
+    MDRaisedButton:
+        text: " CLICK HERE "
+        pos_hint: {'center_x': .7, 'top':.80}
+        theme_text_color: 'Custom'
+        text_color: 1,1,1,1
+        md_bg_color: 0, 0, 0, 1
+        on_release:
+            Snackbar(text="ALWAYS THERE FOR U:)").show()
+    MDRaisedButton:
+        text: " CLICK HERE "
+        pos_hint: {'center_x': .7, 'top':.90}
+        theme_text_color: 'Custom'
+        text_color: 1,1,1,1
+        md_bg_color: 0, 0, 0, 1
+        on_release:
+            Snackbar(text="U HAVE BEEN THE BESTT:)").show()
+    MDRaisedButton:
+        text: " CLICK HERE "
+        pos_hint: {'center_x': .7, 'top':.99}
+        theme_text_color: 'Custom'
+        text_color: 1,1,1,1
+        md_bg_color: 0, 0, 0, 1
+        on_release:
+            Snackbar(text="ISS WALE MAI KUCH NHI HAI:)").show()
+
+
+    MDRaisedButton:
+        text: " CLICK HERE "
+        pos_hint: {'center_x': .3, 'top':.20}
+        theme_text_color: 'Custom'
+        text_color: 1,1,1,1
+        md_bg_color: 0, 0, 0, 1
+        on_release:
+            Snackbar(text="AUR BTA SAB BADIYA:)").show()
+    MDRaisedButton:
+        text: " CLICK HERE "
+        pos_hint: {'center_x': .3, 'top':.30}
+        theme_text_color: 'Custom'
+        text_color: 1,1,1,1
+        md_bg_color: 0, 0, 0, 1
+        on_release:
+            Snackbar(text="COPY CAT...HEHEH:)").show()
+    MDRaisedButton:
+        text: " CLICK HERE "
+        pos_hint: {'center_x': .3, 'top':.40}
+        theme_text_color: 'Custom'
+        text_color: 1,1,1,1
+        md_bg_color: 0, 0, 0, 1
+        on_release:
+            Snackbar(text="KHUSH REH MAZE KAR:)").show()
+    MDRaisedButton:
+        text: " CLICK HERE "
+        pos_hint: {'center_x': .3, 'top':.50}
+        theme_text_color: 'Custom'
+        text_color: 1,1,1,1
+        md_bg_color: 0, 0, 0, 1
+        on_release:
+            Snackbar(text="MY PUREST SOUL:)").show()
+    MDRaisedButton:
+        text: " CLICK HERE "
+        pos_hint: {'center_x': .3, 'top':.60}
+        theme_text_color: 'Custom'
+        text_color: 1,1,1,1
+        md_bg_color: 0, 0, 0, 1
+        on_release:
+            Snackbar(text="BLESSED TO HAVE YOU:)").show()
+    MDRaisedButton:
+        text: " CLICK HERE "
+        pos_hint: {'center_x': .3, 'top':.70}
+        theme_text_color: 'Custom'
+        text_color: 1,1,1,1
+        md_bg_color: 0, 0, 0, 1
+        on_release:
+            Snackbar(text="ISS MAI BHI KUCH NHI HAI:)").show()
+    MDRaisedButton:
+        text: " CLICK HERE "
+        pos_hint: {'center_x': .3, 'top':.80}
+        theme_text_color: 'Custom'
+        text_color: 1,1,1,1
+        md_bg_color: 0, 0, 0, 1
+        on_release:
+            Snackbar(text="KYA LIKHUN AUR...:)").show()
+    MDRaisedButton:
+        text: " CLICK HERE "
+        pos_hint: {'center_x': .3, 'top':.90}
+        theme_text_color: 'Custom'
+        text_color: 1,1,1,1
+        md_bg_color: 0, 0, 0, 1
+        on_release:
+            Snackbar(text="ENJOY UR DAY BRUHHH:)").show()
+    MDRaisedButton:
+        text: " CLICK HERE "
+        pos_hint: {'center_x': .3, 'top':.99}
+        theme_text_color: 'Custom'
+        text_color: 1,1,1,1
+        md_bg_color: 0, 0, 0, 1
+        on_release:
+            Snackbar(text="ONCE AGAIN HAPPY BIRTHDAY:)").show()
+    MDRaisedButton:
+        text: " NEXT "
+        pos_hint: {'center_x': .5, 'top':.10}
+        theme_text_color: 'Custom'
+        text_color: 0,0,0,1
+        md_bg_color: 0,255/255,255/255,1
+        on_release:
+            app.root.current = "second"
+            root.manager.transition.direction = "left"
+    Widget:
+
